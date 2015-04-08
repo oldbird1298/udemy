@@ -1,0 +1,50 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package swing4;
+
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextArea;
+
+/**
+ *
+ * @author Administrator
+ */
+public class MainFrame extends JFrame {
+
+    private TextPanel textPanel;
+    private JButton btn1;
+
+    public MainFrame() {
+        super("Mitsaras");
+        setLayout(new BorderLayout());
+
+        textPanel = new TextPanel();
+        btn1 = new JButton("Click Me!!!");
+
+        add(textPanel, BorderLayout.NORTH);
+        add(btn1, BorderLayout.SOUTH);
+
+        btn1.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                textPanel.appendText("Hello\n");
+            }
+        });
+
+        setSize(600, 500);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setVisible(true);
+    }
+
+}
